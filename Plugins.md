@@ -1,8 +1,13 @@
 # List of plugins installed in vim
 
-* NerdTree
-* tpope/Surround.vim
-* tpope/fugitive.vim
-* tpope/commentary
+* base16-vim
+* ctrlp.vim
+* nerdtree
+* syntastic
+* typescript-vim
+* vim-airline
+* vim-airline-themes
+* vim-commentary
+* vim-fugitive
+* vim-surround
 * YouCompleteMe
-* ctrlp
