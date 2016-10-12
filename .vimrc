@@ -16,6 +16,9 @@ set title
 set backspace=indent,eol,start
 set cursorline
 
+" highlight tabs and trailing spaces
+set list lcs=trail:·,tab:»·
+
 " show existing tab with spaces width
 set tabstop=4
 
@@ -31,7 +34,7 @@ set encoding=utf8
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -43,22 +46,36 @@ set incsearch
 " Set to auto read when a file is changed from the outside
 set autoread
 
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType json setlocal shiftwidth=2 tabstop=2
+
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 
+set pastetoggle=<F10>
 " Key Mappings
 " Fast saving
-nmap <leader>w :w!<cr>
-nmap <leader>q :q!<cr>
+nmap <leader>w gg=G:w!<cr>
+nmap <leader>q :q<cr>
+nmap <leader>qq :q!<cr>
 map <C-n> :NERDTreeToggle<CR>
-nmap <leader>n @q 
+nmap <leader>n @q
 nmap <leader>\ :e ~/.vimrc<CR>
+nnoremap <leader>html :-1r ~/.vim/snippets/blank.html<CR>3j3wa
+nnoremap <leader>v :vsp<CR>
+nnoremap <leader>s :sp<CR>
+
 " Color scheme related changes
 " set dark background and color scheme
-set background=dark
-colorscheme base16-railscasts
+
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
 
 " set up some custom colors
 highlight clear SignColumn
@@ -85,7 +102,17 @@ endif
 " For Nerd Tree
 autocmd StdinReadPre * let s:std_in=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 
 " put git status, column/row number, total lines, and percentage in status
-set statusline=%f\%m\%r\%h\%y\%w\ %{fugitive#statusline()}\ \%=\ %l,%c\ %p%%
+" set statusline=%f\%m\%r\%h\%y\%w\ %{fugitive#statusline()}\ \%=\ %l,%c\ %p%%
+
+" Airline configurations.
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#syntastic#enabled = 1
+
+" Syntastic configurations.
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
