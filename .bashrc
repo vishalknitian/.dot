@@ -124,7 +124,10 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 alias install='sudo apt install'
 alias update-apt='sudo apt update'
 alias upgrade-app='sudo apt upgrade'
+alias autoremove='sudo apt autoremove'
 alias tree='tree --filelimit=20'
+alias mysql='mysql -u root -p'
+alias chrome-dev='google-chrome-stable --disable-web-security --user-data-dir'
 
 node=/home/vishal/Programming/nodeJS
 tcs=/home/vishal/Programming/nodeJS/TCSFinance
