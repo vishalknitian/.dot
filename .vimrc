@@ -59,19 +59,21 @@ let g:mapleader = ","
 set pastetoggle=<F10>
 " Key Mappings
 " Fast saving
-nmap <leader>w gg=G:w!<cr>
+nmap <leader>w mmgg=G`m:w!<cr>
 nmap <leader>q :q<cr>
-nmap <leader>qq :q!<cr>
 map <C-n> :NERDTreeToggle<CR>
 nmap <leader>n @q
 nmap <leader>\ :e ~/.vimrc<CR>
 nnoremap <leader>html :-1r ~/.vim/snippets/blank.html<CR>3j3wa
 nnoremap <leader>v :vsp<CR>
 nnoremap <leader>s :sp<CR>
+inoremap {<cr> {<CR>}<Esc>ko
+inoremap ({<cr> ({<CR>});<Esc>ko
 
 " Color scheme related changes
 " set dark background and color scheme
 
+" set t_Co=256
 if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background
@@ -116,3 +118,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            \ 'file': '\v\.(exe|component.js|component.js.map|so|dll)$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
