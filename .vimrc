@@ -59,15 +59,17 @@ let g:mapleader = ","
 set pastetoggle=<F10>
 " Key Mappings
 " Fast saving
-nmap <leader>w mmgg=G`m:w!<cr>
+nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 map <C-n> :NERDTreeToggle<CR>
 nmap <leader>n @q
 nmap <leader>\ :e ~/.vimrc<CR>
-nnoremap <leader>html :-1r ~/.vim/snippets/blank.html<CR>3j3wa
+" nnoremap <leader>html :-1r ~/.vim/snippets/blank.html<CR>3j3wa
 nnoremap <leader>v :vsp<CR>
 nnoremap <leader>s :sp<CR>
+nnoremap <leader>h :nohl<cr>
 inoremap {<cr> {<CR>}<Esc>ko
+inoremap " ""<Esc>i
 inoremap ({<cr> ({<CR>});<Esc>ko
 
 " Color scheme related changes
@@ -120,7 +122,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|component.js|component.js.map|so|dll)$',
+            \ 'dir':  '\v[\/]((\.(git|hg|svn))|(node_modules))$',
+            \ 'file': '\v\.(exe|service.js|service.js.map|module.js|module.js.map|component.js|component.js.map|so|dll)$',
             \ 'link': 'some_bad_symbolic_links',
             \ }
+let g:indent_guides_guide_size = 1
