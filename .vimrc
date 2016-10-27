@@ -74,12 +74,8 @@ inoremap ({<cr> ({<CR>});<Esc>ko
 
 " Color scheme related changes
 " set dark background and color scheme
-
-" set t_Co=256
-if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-endif
+let base16colorspace=256
+colorscheme base16-default-dark
 
 " set up some custom colors
 highlight clear SignColumn
