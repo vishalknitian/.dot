@@ -1,5 +1,4 @@
 # Custom Aliases.
-
 alias install='sudo apt install'
 alias remove='sudo apt remove'
 alias apt-update='sudo apt update'
