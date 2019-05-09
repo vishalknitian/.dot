@@ -8,13 +8,14 @@ syntax on
 filetype plugin indent on
 
 set noswapfile
+set mouse=nicr
 set laststatus=2
 set autoindent
 set ruler
 set relativenumber
 set title
 set backspace=indent,eol,start
-set cursorline
+" set cursorline
 
 " highlight tabs and trailing spaces
 set list lcs=trail:·,tab:»·
@@ -47,6 +48,7 @@ set incsearch
 set autoread
 
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType json setlocal shiftwidth=2 tabstop=2
@@ -64,6 +66,7 @@ nmap <leader>q :q<cr>
 map <C-n> :NERDTreeToggle<CR>
 nmap <leader>n @q
 nmap <leader>\ :e ~/.vimrc<CR>
+nmap <leader>b :e ~/.bash_profile<CR>
 " nnoremap <leader>html :-1r ~/.vim/snippets/blank.html<CR>3j3wa
 nnoremap <leader>v :vsp<CR>
 nnoremap <leader>s :sp<CR>
